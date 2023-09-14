@@ -1,4 +1,3 @@
 # apnacollege-demo
-
-This is my new temp repository <br />
-Name: Sarvesh Naik (Student)
+<h1> This is a readme for Feature1 branch</h1>
+*This is another text*
