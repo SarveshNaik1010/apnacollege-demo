@@ -3,9 +3,60 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script.js"></script>
     <title>Document</title>
   </head>
   <body>
-    <h1>Hello World! ih</h1>
+    <style>
+      div {
+        margin: 12px;
+      }
+    </style>
+
+    <form class="form">
+      <div>
+        <label>Enter your name</label>
+        <input type="text" onkeydown="keyEvent()" name="name" />
+      </div>
+      <div>
+        <label>Enter your passoword</label>
+        <input type="password" onfocus="changeColor()" />
+      </div>
+      <div>
+        <label>Select your sex</label>
+        <select name="Gender">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+      <div>
+        <label>Select you hobby</label>
+        <input type="radio" name="sport" value="Sports" name="hobby" /> Sports
+        <input type="radio" name="sport" value="Sports" /> Cooking
+        <input type="radio" name="sport" value="Sports" /> Dancing
+        <input type="radio" name="sport" value="Sports" /> Singing
+      </div>
+      <div>
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+    <div class="output"></div>
+
+    <script>
+      const outputDiv = document.querySelector(".output");
+      const formDiv = document.querySelector(".form");
+      console.log(formDiv);
+      formDiv.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+        const html = `<h1>Name: ${formData.get('name')} <br> <h1>Hobby: Sports`;
+        outputDiv.insertAdjacentHTML('afterbegin', html);
+      });
+
+      function keyEvent() {
+        formDiv.insertAdjacentHTML('beforeend', "<h1>You are typing your name</h1>");
+      }
+
+    </script>
   </body>
 </html>
